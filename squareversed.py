@@ -3,7 +3,7 @@ t_start = t_current = t_last = time.time()
 
 #range of sqrt(n) to be checked.
 #START = 10000000000
-START = 00000000001
+START =           1
 END   = 99999999999
 
 
@@ -19,36 +19,14 @@ while i <= END:
     counter = counter + 1 #Simple counter to control the printing of intermediate messages
 
     #Approach 1:
-    #sq = i * i
-    #print(sq)
-    #HUGE BUG IN PYTHON: ( 19421687843317421649 / 10 ) % 10 GIVES 8 !
+    #HIN PYTHON: ( 19421687843317421649 / 10 ) % 10 GIVES 8 !
     #Therefor sq10 was being miss-calculated during higher digit number processing.
-    #sq1 = sq % 10
-    #sq2 = int(sq / 10) % 10
-    #sq3 = int(sq / 100) % 10
-    #sq4 = int(sq / 1000) % 10
-    #sq5 = int(sq / 10000) % 10
-    #sq6 = int(sq / 100000) % 10
-    #sq7 = int(sq / 1000000) % 10
-    #sq8 = int(sq / 10000000) % 10
-    #sq9 = int(sq / 100000000) % 10
-    #sq10= int(sq / 1000000000) % 10
-    #sq11= int(sq / 10000000000) % 10
 
     #approach 2:
     #sq = "000000000000000000000000000" + str( i * i ) #padding extra zeros to suppress higher digit extraction error.
     #sq1 = int( sq[-1] )
     #sq2 = int( sq[-2] )
-    #sq3 = int( sq[-3] )
-    #sq4 = int( sq[-4] )
-    #sq5 = int( sq[-5] )
-    #sq6 = int( sq[-6] )
-    #sq7 = int( sq[-7] )
-    #sq8 = int( sq[-8] )
-    #sq9 = int( sq[-9] )
-    #sq10 = int( sq[-10] )
-    #sq11 = int( sq[-11] )
-    #sq12 = int( sq[-12] )
+    #and so on... 
 
     #approach 3:
     sq = i * i
@@ -66,7 +44,6 @@ while i <= END:
     sq12= sq // 100000000000 % 10
 
     #n = 10000 * ( sq1 * 1000 + sq2 * 100 + sq3 * 10 + sq4 ) + i #Forumulae for 8 digit number.
-    #
     
     #n = 100000 * ( sq1 * 10000 + sq2 * 1000 + sq3 * 100 + sq4 * 10 + sq5 ) + i #Forumulae for 10 digit number.
     #Wow!  4270981082
@@ -76,7 +53,6 @@ while i <= END:
     #Wow!  692153612536
     
     #n = 10000000 * ( sq1*1000000 +sq2*100000 +sq3*10000 +sq4*1000 +sq5*100 +sq6*10 +sq7 ) + i #Forumulae for 14 digit number.
-    #
     
     #n = 100000000 * ( sq1*1000000 +sq2*100000 +sq3*10000 +sq4*1000 +sq5*100 +sq6*10 +sq7 ) + i #Forumulae for 15 digit number.
     #Wow! 182921919071841
@@ -90,7 +66,6 @@ while i <= END:
 
     #n = 1000000000 * ( sq1*100000000 + sq2*10000000 + sq3*1000000 + sq4*100000 + sq5*10000 + sq6*1000 + sq7*100 + sq8*10 + sq9 ) + i #Forumulae for 18 digit number.
     #Wow! 650700037578750084
-    #Run-time 5967.29 sec.
 
     #n = 10000000000 * ( sq1*100000000 +sq2*10000000 +sq3*1000000 +sq4*100000 +sq5*10000 +sq6*1000 +sq7*100 +sq8*10 +sq9 ) + i #Forumulae for 19 digit number.
     
