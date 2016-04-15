@@ -2,7 +2,8 @@ import time
 t_start = t_current = t_last = time.time()
 
 #range of sqrt(n) to be checked.
-START = 10000000000
+#START = 10000000000
+START = 00000000001
 END   = 99999999999
 
 
